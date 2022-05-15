@@ -59,7 +59,7 @@
 {
     background-color: #000;
     color: #fff;
-    padding: 4rem 2.2rem 2rem;
+    padding: 4rem 2rem 2rem;
     &__title
     {
         display: block;
@@ -176,6 +176,27 @@
         &__paragraph
         {
             display: none;
+        }
+    }
+}
+
+@media only screen and(max-width:500px) 
+{
+    .por-que-elegir
+    {
+        padding: 4rem 1.5rem 2rem 1.5rem;
+        &__container
+        {
+            gap: .5rem;
+        }
+        &__box
+        {
+            min-width: 80.8px;
+            
+        }
+        &__subtitle
+        {
+            font-size: .8rem;
         }
     }
 }

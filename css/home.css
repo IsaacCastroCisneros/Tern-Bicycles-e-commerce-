@@ -450,7 +450,7 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
 .por-que-elegir {
   background-color: #000;
   color: #fff;
-  padding: 4rem 2.2rem 2rem;
+  padding: 4rem 2rem 2rem;
 }
 .por-que-elegir__title {
   display: block;
@@ -535,6 +535,20 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
 @media only screen and (max-width: 637px) {
   .por-que-elegir__paragraph {
     display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .por-que-elegir {
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+  .por-que-elegir__container {
+    gap: 0.5rem;
+  }
+  .por-que-elegir__box {
+    min-width: 80.8px;
+  }
+  .por-que-elegir__subtitle {
+    font-size: 0.8rem;
   }
 }
 .footer {
