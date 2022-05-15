@@ -1,0 +1,27 @@
+.container
+{
+    width: 90rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.flex
+{
+    display: flex;
+    align-items: center;
+}
+.button
+{
+    display: inline-block;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+.link
+{
+    display: block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}

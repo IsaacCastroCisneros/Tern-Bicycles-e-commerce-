@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300;400&family=Josefin+Sans:wght@300;500&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;500;700&family=Press+Start+2P&family=Red+Hat+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/da5f644e53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/bicis.css">
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script defer src="../src/conponents/index.js"></script>
+    <title>Tern Bicycles | Bicis</title>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('DOMContentLoaded',()=>
+        {
+            location.hash='';
+            sessionStorage.removeItem('actualBici');
+        })
+    </script>
+    <div class="body-layer">
+    </div>
+    <header class="header">
+        <div class="header__container">
+            <a href="./home.html" class="header__logo">
+                <img src="../dist-images/Tern-logo-horizontal-250w.png" alt="">
+            </a>
+            <nav class="nav-bar">
+                <ul class="nav-bar__list">
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./home.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./bicis.html">
+                            Bicis
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./shopCart.html">
+                            Shopping Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="header__menu-icon" data-header-menu-button>
+                <i class="fa-solid fa-bars fa-3x" data-header-menu-icon></i>
+            </button>
+            <div class="header__mob-menu" data-header-mob-menu>
+                <button class="header__mob-icon" data-header-mob-button>
+                    <i class="fa-solid fa-xmark fa-2x" data-header-mob-icon></i>
+                </button>
+                <div class="header__mob-logo-container">
+                    <a href="./home.html" class="header__mob-logo">
+                        <img src="../dist-images/pngwing.com (1).png" alt="">
+                    </a>
+                </div>
+                <nav class="nav-bar-mob">
+                    <ul class="nav-bar-mob__list">
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/home.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/bicis.html">
+                                Bicis
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item nav-bar-mob__item--no-border">
+                            <a class="nav-bar-mob__link" href="./shopCart.html">
+                                Shopping Cart
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__social">
+                    <ul class="header__social-list">
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-facebook-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-twitter fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-instagram fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="shop-cart-container">
+        <button class="shop-cart-container__icon" shop-cart-button>
+            <div class="shop-cart__circle" shop-cart-button></div>
+            <i class="fa-solid fa-bag-shopping" shop-cart-button></i>
+            <div class="shop-cart__notification" shop-cart-button>0</div>
+        </button>
+        <div class="shop-cart">
+            <div class="shop-cart__container"></div>
+            <p class="shop-cart__total-container">
+                TOTAL: <span class="shop-cart__total"></span> 
+            </p>
+            <a href="./shopCart.html">
+                <button class="shop-cart__show-cart">
+                    Check Cart
+               </button>
+            </a>
+        </div>
+    </div>
+    <div class="mob-shop-cart-container">
+        <a href="./shopCart.html" class="shop-cart-container__link">
+            <button class="shop-cart-container__icon shop-cart-container__icon--fixed" mob-shop-cart-button>
+                <div class="shop-cart__circle" mob-shop-cart-button></div>
+                <i class="fa-solid fa-bag-shopping" mob-shop-cart-button></i>
+                <div class="shop-cart__notification" mob-shop-cart-button>0</div>
+            </button>
+        </a>  
+        <div class="mob-shop-cart__container"></div>
+    </div>
+    <main class="body">
+        <section class="bicicletas-section">
+            <h1 class="bicicletas-section__title">
+                Bicicletas
+            </h1>
+            <p class="bicicletas-section__paragraph">
+                En Tern, diseñamos bicis que rebasan las expectativas de lo que una bicicleta plegable puede hacer.
+                Ofrecemos una amplia gama de bicicletas para los diferentes tipos de ciclistas. Selecciona el modelo
+                para encontrar la bici que se adapta a ti.
+            </p>
+        </section>
+        <div class="lifestyles">
+            <div class="lifestyles__box">
+                <div class="lifestyles__img">
+                    <img src="../dist-images/carosuel/node-lifestyle.jpg" alt="">
+                </div>
+                <button class="lifestyles__link bicicletas__button" data-serie="Node">Bicicletas Node</button>
+            </div>
+            <div class="lifestyles__box">
+                <div class="lifestyles__img">
+                    <img src="../dist-images/carosuel/verge-x11-g2-black2.jpg" alt="">
+                </div>
+                <button class="lifestyles__link bicicletas__button" data-serie="Verge">Bicicletas Verge</button>
+            </div>
+            <div class="lifestyles__box">
+                <div class="lifestyles__img">
+                    <img src="../dist-images/carosuel/link-lifestyle.jpg" alt="">
+                </div>
+                <button class="lifestyles__link bicicletas__button" data-serie="Link">Bicicletas Link</button>
+            </div>
+        </div>
+        <div class="bicicletas">
+            <div class="bicicletas__left-container">
+                <div class="bicicletas__series-container">
+                    <h3 class="bicicletas__series">
+                        Series:
+                    </h3>
+                    <ul class="bicicletas__list">
+                        <li class="bicicletas__item">
+                            <button class="bicicletas__button" data-serie="All">All</button>
+                        </li>
+                        <li class="bicicletas__item">
+                            <button class="bicicletas__button" data-serie="Verge">Verge</button>
+                        </li>
+                        <li class="bicicletas__item">
+                            <button class="bicicletas__button" data-serie="Link">Link</button>
+                        </li>
+                        <li class="bicicletas__item">
+                            <button class="bicicletas__button" data-serie="Node">Node</button>
+                        </li>
+                        <li class="bicicletas__item bicicletas__item--border">
+                            <button class="bicicletas__button" data-serie="GSD">GSD</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bicicletas__right-container">
+                 <div class="bicicletas__items" data-bicicletas-items>
+                   <!--  <div class="bici-container">
+                        <div class="bici">
+                            <div class="bici__img-container">
+                                <img class="bici__img" src="../dist-images/bicis/linka7-g2-unfold-m0-matteblue-silver.jpg" alt="">
+                            </div>
+                            <h3 class="bici__name">
+                               fdsfs
+                            </h3>
+                            <a class="bici__link" href="">
+                                VER
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bici-container">
+                        <div class="bici">
+                            <div class="bici__img-container">
+                                <img class="bici__img" src="../dist-images/bicis/linka7-g2-unfold-m0-matteblue-silver.jpg" alt="">
+                            </div>
+                            <h3 class="bici__name">
+                               fdsfs
+                            </h3>
+                            <a class="bici__link" href="">
+                                VER
+                            </a>
+                        </div>
+                    </div> -->
+                 </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__information">
+                © 2011 - 2022 Tern is a trademark of Mobility Holdings, Ltd. All Rights Reserved.
+            </p>
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-facebook-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+<template class="bici-template">
+    <div class="bici-container">
+        <div class="bici">
+            <div class="bici__img-container">
+                <img class="bici__img" src="" alt="">
+            </div>
+            <h3 class="bici__name">
+    
+            </h3>
+            <a class="bici__link" href="../public/bici.html" >
+                VER
+            </a>
+        </div>
+    </div> 
+</template>
+
+<template class="shop-cart-template">
+    <div class="shop-cart__item">
+        <button class="shop-cart__remove" shop-cart-remove>
+            <i class="fa-solid fa-xmark" shop-cart-remove></i>
+        </button>
+        <div class="shop-cart__img">
+            <img class="shop-cart__actual-img" src="" alt="">
+        </div>
+        <div class="shop-cart__title-container">
+            <h1 class="shop-cart__title">
+               
+            </h1>
+            <p class="shop-cart__price">
+               <span class="shop-cart__actual-price"></span>&nbsp;x<span class="shop-cart__quantity"></span>
+            </p>
+        </div>
+        <p class="shop-cart__subtotal-container">
+            <span>subtotal: </span>
+            <span class="shop-cart__subtotal"></span>
+        </p>
+    </div>
+</template>
+</html>

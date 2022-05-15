@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300;400&family=Josefin+Sans:wght@300;500&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;500;700&family=Press+Start+2P&family=Red+Hat+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/da5f644e53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script defer src="../src/conponents/index.js"></script>
+    <title>Tern Bicycles</title>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('DOMContentLoaded',()=>
+        {
+            location.hash='';
+            sessionStorage.removeItem('actualBici');
+        })
+    </script>
+    <div class="body-layer">
+    </div>
+    <header class="header">
+        <div class="header__container">
+            <a href="./home.html" class="header__logo">
+                <img src="../dist-images/Tern-logo-horizontal-250w.png" alt="">
+            </a>
+            <nav class="nav-bar">
+                <ul class="nav-bar__list">
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./home.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./bicis.html">
+                            Bicis
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./shopCart.html">
+                            Shopping Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="header__menu-icon" data-header-menu-button>
+                <i class="fa-solid fa-bars fa-3x" data-header-menu-icon></i>
+            </button>
+            <div class="header__mob-menu" data-header-mob-menu>
+                <button class="header__mob-icon" data-header-mob-button>
+                    <i class="fa-solid fa-xmark fa-2x" data-header-mob-icon></i>
+                </button>
+                <div class="header__mob-logo-container">
+                    <a href="./home.html" class="header__mob-logo">
+                        <img src="../dist-images/pngwing.com (1).png" alt="">
+                    </a>
+                </div>
+                <nav class="nav-bar-mob">
+                    <ul class="nav-bar-mob__list">
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/home.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/bicis.html">
+                                Bicis
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item nav-bar-mob__item--no-border">
+                            <a class="nav-bar-mob__link" href="./shopCart.html">
+                                Shopping Cart
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__social">
+                    <ul class="header__social-list">
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-facebook-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-twitter fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-instagram fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="shop-cart-container">
+        <button class="shop-cart-container__icon" shop-cart-button>
+            <div class="shop-cart__circle" shop-cart-button></div>
+            <i class="fa-solid fa-bag-shopping" shop-cart-button></i>
+            <div class="shop-cart__notification" shop-cart-button>0</div>
+        </button>
+        <div class="shop-cart">
+            <div class="shop-cart__container">
+                
+            </div>
+            <p class="shop-cart__total-container">
+                TOTAL: <span class="shop-cart__total"></span> 
+            </p>
+            <a href="./shopCart.html">
+                <button class="shop-cart__show-cart">
+                    Check Cart
+               </button>
+            </a>
+        </div>
+    </div>
+    <div class="mob-shop-cart-container">
+        <a href="./shopCart.html" class="shop-cart-container__link">
+            <button class="shop-cart-container__icon shop-cart-container__icon--fixed" mob-shop-cart-button>
+                <div class="shop-cart__circle" mob-shop-cart-button></div>
+                <i class="fa-solid fa-bag-shopping" mob-shop-cart-button></i>
+                <div class="shop-cart__notification" mob-shop-cart-button>0</div>
+            </button>
+        </a>  
+        <div class="mob-shop-cart__container"></div>
+    </div>
+    <main class="body">
+        <div class="banner">
+            <div class="banner__img">
+                <img src="../dist-images/keyimage1-node.jpg" alt="">
+            </div>
+            <section class="banner__section">
+                <h1 class="banner__title">
+                    La Nueva Node
+                </h1>
+                <p class="banner__subtitle">
+                    Para personas que aman andar en bici en la ciudad
+                </p>
+                <a href="../public/bicis.html" class="banner__link">
+                    EXPLORAR AHORA
+                </a>
+            </section>
+        </div>
+        <div class="por-que-elegir">
+            <h1 class="por-que-elegir__title">
+                POR QUÉ ELEGIR UNA BICI TERN
+            </h1>
+            <div class="por-que-elegir__container">
+                <div class="por-que-elegir__box">
+                    <div class="por-que-elegir__img">
+                        <img src="../dist-images/icon_face.PNG" alt="">
+                    </div>
+                    <section class="por-que-elegir__section">
+                        <h1 class="por-que-elegir__subtitle">
+                            POR QUÉ ELEGIR UNA BICI TERN
+                        </h1>
+                        <p class="por-que-elegir__paragraph">
+                            Tome un test ride y vea por qué la gente considera a Tern la mejor bici plegable.
+                        </p>
+                    </section>
+                </div>
+                <div class="por-que-elegir__box">
+                    <div class="por-que-elegir__img">
+                        <img src="../dist-images/icon_arrow.PNG" alt="">
+                    </div>
+                    <section class="por-que-elegir__section">
+                        <h1 class="por-que-elegir__subtitle">
+                            El plegado perfecto
+                        </h1>
+                        <p class="por-que-elegir__paragraph">
+                            Nuestras bicis se pliegan compactas, por lo que son ideales para viajes, guardado y a prueba
+                            de robos.
+                        </p>
+                    </section>
+                </div>
+                <div class="por-que-elegir__box">
+                    <div class="por-que-elegir__img">
+                        <img src="../dist-images/tornillo.PNG" alt="">
+                    </div>
+                    <section class="por-que-elegir__section">
+                        <h1 class="por-que-elegir__subtitle">
+                            Construidas para durar
+                        </h1>
+                        <p class="por-que-elegir__paragraph">
+                            Nuestras bicis están cubiertas por una garantía de 10 años, además, están diseñadas para ser
+                            serviciales.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner__img">
+                <img src="../dist-images/tipo-lentes.jpg" alt="">
+            </div>
+            <section class="banner__section">
+                <h1 class="banner__title">
+                    Explore nuestros diseños y encuentre el que mejor se adapta a sus necesidades
+                </h1>
+                <a href="../public/bicis.html" class="banner__link">
+                    VEA NUESTRAS BICIS
+                </a>
+            </section>
+        </div>
+        <div class="learn-about">
+            <h1 class="learn-about__title">
+                LEARN ABOUT TERN AND WHAT WE STAND FOR
+            </h1>
+            <div class="learn-about__container">
+                <div class="learn-about__box">
+                    <div class="learn-about__img">
+                        <img src="../dist-images/learn/B4B-Banner-Knowledge-Base_v02.jpg" alt="">
+                    </div>
+                    <p class="learn-about__paragraph">
+                        The Clubhouse Fort Mini: What It Is and How to Build It
+                    </p>
+                </div>
+                <div class="learn-about__box">
+                    <div class="learn-about__img">
+                        <img src="../dist-images/learn/banner option.jpg" alt="">
+                    </div>
+                    <p class="learn-about__paragraph">
+                        The Doghouse Mini: What It Is and How to Build It
+                    </p>
+                </div>
+                <div class="learn-about__box">
+                    <div class="learn-about__img">
+                        <img src="../dist-images/learn/Doghouse - 1920 x 630 px.jpg" alt="">
+                    </div>
+                    <p class="learn-about__paragraph">
+                        Five Advantages of Bosch E-Bikes You Shouldn’t Overlook
+                    </p>
+                </div>
+                <div class="learn-about__box">
+                    <div class="learn-about__img">
+                        <img src="../dist-images/learn/KB-banner-5-advantages-of-Bosch-e-bikes-v03.jpg" alt="">
+                    </div>
+                    <p class="learn-about__paragraph">
+                        Guide to Buying a Used E-Bike
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="banner banner--padding">
+            <div class="banner__img">
+                <img src="../dist-images/keyimage-accessories.jpg" alt="">
+            </div>
+            <section class="banner__section">
+                <h1 class="banner__title">
+                    Cargue más o personalice su rodado con nuestro ecosistema de accesorios Tern
+                </h1>
+                <a href="./bicis.html" class="banner__link">
+                    VEA NUESTRAS BICIS
+                </a>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__information">
+                © 2011 - 2022 Tern is a trademark of Mobility Holdings, Ltd. All Rights Reserved.
+            </p>
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-facebook-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<template class="shop-cart-template">
+    <div class="shop-cart__item">
+        <button class="shop-cart__remove" shop-cart-remove>
+            <i class="fa-solid fa-xmark" shop-cart-remove></i>
+        </button>
+        <div class="shop-cart__img">
+            <img class="shop-cart__actual-img" src="" alt="">
+        </div>
+        <div class="shop-cart__title-container">
+            <h1 class="shop-cart__title">
+               
+            </h1>
+            <p class="shop-cart__price">
+               <span class="shop-cart__actual-price"></span>&nbsp;x<span class="shop-cart__quantity"></span>
+            </p>
+        </div>
+        <p class="shop-cart__subtotal-container">
+            <span>subtotal: </span>
+            <span class="shop-cart__subtotal"></span>
+        </p>
+    </div>
+</template>
+</html>

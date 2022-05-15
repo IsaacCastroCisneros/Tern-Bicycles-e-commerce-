@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300;400&family=Josefin+Sans:wght@300;500&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;500;700&family=Press+Start+2P&family=Red+Hat+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/da5f644e53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/shoppingCart.css">
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script defer src="../src/conponents/index.js"></script>
+    <title>Tern Bicycles | Shopping Cart</title>
+</head>
+
+<body class="body-shopCart">
+    <div class="body-layer">
+    </div>
+    <header class="header">
+        <div class="header__container">
+            <a href="./home.html" class="header__logo">
+                <img src="../dist-images/Tern-logo-horizontal-250w.png" alt="">
+            </a>
+            <nav class="nav-bar">
+                <ul class="nav-bar__list">
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./home.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./bicis.html">
+                            Bicis
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a class="nav-bar__link" href="./shopCart.html">
+                            Shopping Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="header__menu-icon" data-header-menu-button>
+                <i class="fa-solid fa-bars fa-3x" data-header-menu-icon></i>
+            </button>
+            <div class="header__mob-menu" data-header-mob-menu>
+                <button class="header__mob-icon" data-header-mob-button>
+                    <i class="fa-solid fa-xmark fa-2x" data-header-mob-icon></i>
+                </button>
+                <div class="header__mob-logo-container">
+                    <a href="./home.html" class="header__mob-logo">
+                        <img src="../dist-images/pngwing.com (1).png" alt="">
+                    </a>
+                </div>
+                <nav class="nav-bar-mob">
+                    <ul class="nav-bar-mob__list">
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/home.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item">
+                            <a class="nav-bar-mob__link" href="../public/bicis.html">
+                                Bicis
+                            </a>
+                        </li>
+                        <li class="nav-bar-mob__item nav-bar-mob__item--no-border">
+                            <a class="nav-bar-mob__link" href="./shopCart.html">
+                                Shopping Cart
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__social">
+                    <ul class="header__social-list">
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-facebook-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-twitter fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="header__social-item">
+                            <a class="header__social-link" href="">
+                                <i class="fa-brands fa-instagram fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="body">
+        <div class="shop-cart-container">
+            <section class="shop-cart-section">
+                <h1 class="shop-cart-section__title">
+                    Carrito de compra
+                </h1>
+                <a href="./bicis.html" class="shop-cart-section__link">
+                    Continue Buying
+                </a>
+            </section>
+            <div class="shop-cart">
+                <div class="shop-cart__row">
+                    <div class="shop-cart__box shop-cart__box--product shop-cart__box--header">
+                        Product
+                    </div>
+                    <div class="shop-cart__box shop-cart__box--price shop-cart__box--header">
+                        Price
+                    </div>
+                    <div class="shop-cart__box shop-cart__box--quantity shop-cart__box--header">
+                        Quantity
+                    </div>
+                    <div class="shop-cart__box shop-cart__box--total shop-cart__box--header">
+                        Total
+                    </div>
+                </div>
+                <div class="shop-cart-row-container"></div>
+                <div class="shop-cart-subtotal">
+                    <div class="shop-cart-subtotal__container">
+                        <h2 class="shop-cart-subtotal__title">
+                             Subtotal:
+                        </h2>
+                        <span class="shop-cart-subtotal__subtotal">
+                            
+                        </span>
+                    </div>
+                    <p class="shop-cart-subtotal__paragraph">
+                        Impuesto incluido. Los gastos de envío se calculan en la pantalla de pagos.
+                    </p>
+                    <button class="shop-cart-subtotal__finish-order">
+                        Finish Oder
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__information">
+                © 2011 - 2022 Tern is a trademark of Mobility Holdings, Ltd. All Rights Reserved.
+            </p>
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-facebook-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a class="footer__link" href="#">
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<template class="shop-cart-template">
+    <div class="shop-cart__row">
+        <div class="shop-cart__box shop-cart__box--product shop-cart__box--header">
+            <div class="shop-cart__img">
+                <img shop-cart-img src="" alt="">
+            </div>
+            <div class="shop-cart__rigth-container">
+                <h3 class="shop-cart__title">
+               </h3>
+               <button class="shop-cart__remove">
+                   remove  
+               </button>
+            </div>
+        </div>
+        <div class="shop-cart__box shop-cart__box--price">     
+        </div>
+        <div class="shop-cart__box shop-cart__box--quantity">
+            <div class="shop-cart__input-container">
+                <button class="shop-cart__input-button" data-operation="suma" shop-cart-input-button>
+                    <i class="fa-solid fa-caret-up" data-operation="suma" shop-cart-input-button></i>
+                </button>
+                <button class="shop-cart__input-button" data-operation="resta" shop-cart-input-button>
+                    <i class="fa-solid fa-caret-down" data-operation="resta" shop-cart-input-button></i>
+                </button>
+            </div>
+            <form class="shop-cart__form" action="">
+                <input class="shop-cart__input" type="number" maxlength="99" required>
+            </form>
+        </div>
+        <div class="shop-cart__box shop-cart__box--total">
+        </div>
+    </div>
+</template>  
+
+<template class="no-product-template">
+    <span class="shop-cart-row-container__span">No products added yet</span>
+</template>
+</html>

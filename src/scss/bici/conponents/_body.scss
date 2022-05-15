@@ -1,0 +1,146 @@
+@use '../../util/extends';
+
+.product
+{
+    background-color: #fff;
+    @extend .flex;
+    align-items: flex-start;
+    padding: 3.2rem;
+    &__left-container
+    {
+        flex: 0 1 32%;
+    }
+    &__title
+    {
+        font-size: 4.7rem;  
+        margin-bottom: 1.5rem; 
+        &--mob
+        {
+            display: none;
+        }
+    }
+    &__description-container
+    {
+        color: #858585;
+        line-height: 2rem;
+        font-weight: 100;
+    }
+    &__description
+    {
+        margin-bottom: 1.8rem;
+    }
+    &__description-list
+    {
+       position: relative;
+       left: 1.1rem;
+    }
+    &__price
+    {
+       margin:1.8rem 0;
+    }
+    &__add-to-cart
+    {
+        text-align: center;
+        @extend .flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    &__input-container
+    {
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4rem;
+        background-color: rgb(236, 236, 236);
+        border-radius: .4rem;
+        overflow: hidden;
+        flex: 1;
+        min-width: 168px;
+    }
+    &__input
+    {
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 1.3rem;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button
+        {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    &__input-button
+    {
+        @extend .button;
+        padding: 0 1rem;
+        font-weight: bold;
+        font-size:2rem;
+    }
+    &__button
+    {
+        @extend .button;
+        flex: 1 1 25%;
+        min-width: 179px;
+        font-size: 1.2rem;
+        border-radius: .5rem;
+        color: #fff;
+        background-color: rgb(167, 167, 167);
+        height: 4rem;
+
+        &.active
+        {
+            pointer-events: none;
+        }
+        &--mob
+        {
+            display: none;
+        }
+    }
+    &__right-container
+    {
+        flex: 1;
+        padding: 4rem;
+    }
+    &__img-container
+    {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    &__img
+    {
+        width: 100%;
+    }
+   
+}
+
+@media only screen and (max-width:1229px) 
+{
+    .product
+    {
+        flex-direction: column-reverse;
+        &__title
+        {
+            &--mob
+            {
+                display: initial;
+            }
+        }
+        &__right-container
+        {
+            padding: 0;
+        }
+        &__button
+        {
+            display: none;
+            &--mob
+            {
+                display:inline-block;
+            }
+        }
+    }
+}

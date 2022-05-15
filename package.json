@@ -1,0 +1,43 @@
+{
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "sass": "^1.51.0"
+  },
+  "name": "e-commerce(tern)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "anymatch": "^3.1.2",
+    "binary-extensions": "^2.2.0",
+    "braces": "^3.0.2",
+    "chokidar": "^3.5.3",
+    "contentful": "^9.1.27",
+    "contentful-management": "^10.2.0",
+    "fill-range": "^7.0.1",
+    "glob-parent": "^5.1.2",
+    "immutable": "^4.0.0",
+    "is-binary-path": "^2.1.0",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "normalize-path": "^3.0.0",
+    "parcel-bundler": "^1.12.5",
+    "picomatch": "^2.3.1",
+    "readdirp": "^3.6.0",
+    "source-map-js": "^1.0.2",
+    "to-regex-range": "^5.0.1",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "parcel ./public/home.html ./public/bicis.html ./public/bici.html ./public/shopCart.html",
+    "build": "parcel build ./public/home.html ./public/bicis.html ./public/bici.html ./public/shopCart.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

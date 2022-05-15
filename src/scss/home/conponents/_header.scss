@@ -1,0 +1,228 @@
+@use '../../util/extends';
+
+.header
+{
+    background-color: #000;
+    padding: 2.2rem;
+    &__container
+    {
+        @extend .container, .flex;
+    }
+    &__logo
+    {
+        height: 48px;
+        img
+        {
+            height:100%; 
+        }
+    }
+    &__menu-icon
+    {
+        display: none;
+    }
+    &__mob-menu
+    {
+        display: none;
+    }
+    &__social
+    {
+        padding: 1rem 2rem
+    }
+    &__social-list
+    {
+       @extend .flex;
+       justify-content: space-between;
+       list-style: none;
+    }
+    &__social-link
+    {
+       color: #979797;
+    }
+}
+
+.nav-bar
+{
+    margin: 0 0 0 2rem;
+    &__list
+    {
+        @extend .flex;
+        list-style: none;
+    }
+    &__item
+    {
+        padding: .5rem;
+    }
+    &__link
+    {
+        @extend .link;
+        text-transform: uppercase;
+        color:rgb(174 174 174);
+        &:hover
+        {
+            color: #fff;
+        }
+    }
+}
+
+@media only screen and (max-width:767px) 
+{
+    .body-layer
+    {
+        display: initial;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+        z-index: -999;
+        background-color: rgba(0, 0, 0,.5);
+        transition: ease-in-out .3s;
+        &.active
+        {
+            z-index: 9999;
+            opacity: 1;
+        }
+    }
+    .nav-bar
+    {
+        display: none;
+    }
+    .header
+    {
+        &__container
+        {
+            justify-content: space-between;
+        }
+        &__menu-icon
+        {
+            display: initial;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+        }
+        &__mob-menu
+        {
+            display: block;
+            z-index: 99999;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #414042;
+            height: 100%;
+            transform: translateX(100%);
+            transition: ease-in-out .4s;
+            &.active
+            {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        &__mob-logo-container
+        {
+            padding: 2rem;
+        }
+        &__mob-icon
+        {
+            position: absolute;
+            width: fit-content;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+        &__mob-logo
+        {
+            display: block;
+            height: 5rem;
+            img
+            {
+                height: 100%;
+            }
+        }
+    }
+    
+    .nav-bar-mob
+    {
+        &__list
+        {
+            list-style: none;
+            border-top: 1px solid rgb(184, 184, 184);
+            border-bottom: 1px solid rgb(184, 184, 184);
+        }
+        &__item
+        {
+            border-bottom: 1px solid rgb(184, 184, 184);
+            padding: .5rem;
+            &--no-border
+            {
+                border:none;
+            }
+        }
+        &__link
+        {
+            display: block;
+            text-decoration: none;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            
+            &:hover
+            {
+                color: #979797;
+            }
+        }
+    }
+}
+
+/* hoy reafirmo mi compromiso como un hombre noble, de dejar el pmo y cambiar mi vida.
+
+hoy fui tentado muy fuertemente por el pmo, pero pude resistir, los factores que encontré son los siguientes:
+
+-estar en mi cama
+-fantasear
+
+considero que el hecho de estar descansando en mi cama detona fantasías que me pueden hacer recaer.
+
+que hare al respecto:
+
+- reafirmar mi compromiso será lo primero que haga en el día
+¿por que?
+para tenerlo presente en caso de ser tentado en la mañana.
+
+- hacer ejercicio antes de meditar
+¿por que?
+considero que después de hacer ejercicio tendré la mente mas limpia, además dudo que me de ganas estando algo exhausto.  
+
+-meditar en el suelo
+¿por que?
+por que parece que aun relaciono la cama con el pmo.
+
+que hare hoy:
+que los productos aparezcan de acuerdo a la serie, además de hacer parte del carrito.
+
+lo que pensé mientras estaba siendo tentado:
+
+- aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?
+- será la ultima
+- ya hace unos días que no lo haces
+- checa las paginas y si encuentras algo interesante lo haces.
+- piensa en cosas interesantes que puedas buscar para que la recaída valga la pena.
+- vuelve a fallar hoy, de modo que luego ves como solucionar esta en especifico, es decir después de recaer 
+te fijas en las razones por las que recaíste y ves como defenderte, así que recae sin presiones.
+- no importa si no reinicias tu contador de días o si sigues reafirmando tu compromiso como si nada hubiera pasado, nadie lo sabrá.
+
+como debo de pensar para contrarrestar cada uno estos pensamientos:
+
+"aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?"
+el compromiso es para todo la vida, si vengo aquí a reafirmarlo es para tenerlo presente y no olvidar mi camino, ademas no es como si cada reafirmación tuviera una fecha de caducidad para un solo día.
+
+"será la ultima"
+sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hemos dado desde que éramos niños, */
