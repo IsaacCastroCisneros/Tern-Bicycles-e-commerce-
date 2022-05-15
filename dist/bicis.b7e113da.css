@@ -1,0 +1,584 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: #000;
+}
+
+.body-layer {
+  display: none;
+}
+
+.container, .header__container {
+  width: 90rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.flex, .footer__list, .lifestyles, .bicicletas, .bicicletas__items, .shop-cart__item, .shop-cart__price, .shop-cart__subtotal-container, .header__container, .header__social-list, .nav-bar__list {
+  display: flex;
+  align-items: center;
+}
+
+.button, .bicicletas__button, .shop-cart-container__icon, .shop-cart__remove, .shop-cart__show-cart {
+  display: inline-block;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+.link, .footer__link, .lifestyles__link, .bici__link, .shop-cart-container__icon--fixed, .nav-bar__link {
+  display: block;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.header {
+  background-color: #000;
+  padding: 2.2rem;
+}
+.header__logo {
+  height: 48px;
+}
+.header__logo img {
+  height: 100%;
+}
+.header__menu-icon {
+  display: none;
+}
+.header__mob-menu {
+  display: none;
+}
+.header__social {
+  padding: 1rem 2rem;
+}
+.header__social-list {
+  justify-content: space-between;
+  list-style: none;
+}
+.header__social-link {
+  color: #979797;
+}
+
+.nav-bar {
+  margin: 0 0 0 2rem;
+}
+.nav-bar__list {
+  list-style: none;
+}
+.nav-bar__item {
+  padding: 0.5rem;
+}
+.nav-bar__link {
+  text-transform: uppercase;
+  color: #aeaeae;
+}
+.nav-bar__link:hover {
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .body-layer {
+    display: initial;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: -999;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 0.3s;
+  }
+  .body-layer.active {
+    z-index: 9999;
+    opacity: 1;
+  }
+
+  .nav-bar {
+    display: none;
+  }
+
+  .header__container {
+    justify-content: space-between;
+  }
+  .header__menu-icon {
+    display: initial;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  .header__mob-menu {
+    display: block;
+    z-index: 99999;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #414042;
+    height: 100%;
+    transform: translateX(100%);
+    transition: ease-in-out 0.4s;
+  }
+  .header__mob-menu.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .header__mob-logo-container {
+    padding: 2rem;
+  }
+  .header__mob-icon {
+    position: absolute;
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+  .header__mob-logo {
+    display: block;
+    height: 5rem;
+  }
+  .header__mob-logo img {
+    height: 100%;
+  }
+
+  .nav-bar-mob__list {
+    list-style: none;
+    border-top: 1px solid #b8b8b8;
+    border-bottom: 1px solid #b8b8b8;
+  }
+  .nav-bar-mob__item {
+    border-bottom: 1px solid #b8b8b8;
+    padding: 0.5rem;
+  }
+  .nav-bar-mob__item--no-border {
+    border: none;
+  }
+  .nav-bar-mob__link {
+    display: block;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+  }
+  .nav-bar-mob__link:hover {
+    color: #979797;
+  }
+}
+/* hoy reafirmo mi compromiso como un hombre noble, de dejar el pmo y cambiar mi vida.
+
+hoy fui tentado muy fuertemente por el pmo, pero pude resistir, los factores que encontré son los siguientes:
+
+-estar en mi cama
+-fantasear
+
+considero que el hecho de estar descansando en mi cama detona fantasías que me pueden hacer recaer.
+
+que hare al respecto:
+
+- reafirmar mi compromiso será lo primero que haga en el día
+¿por que?
+para tenerlo presente en caso de ser tentado en la mañana.
+
+- hacer ejercicio antes de meditar
+¿por que?
+considero que después de hacer ejercicio tendré la mente mas limpia, además dudo que me de ganas estando algo exhausto.  
+
+-meditar en el suelo
+¿por que?
+por que parece que aun relaciono la cama con el pmo.
+
+que hare hoy:
+que los productos aparezcan de acuerdo a la serie, además de hacer parte del carrito.
+
+lo que pensé mientras estaba siendo tentado:
+
+- aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?
+- será la ultima
+- ya hace unos días que no lo haces
+- checa las paginas y si encuentras algo interesante lo haces.
+- piensa en cosas interesantes que puedas buscar para que la recaída valga la pena.
+- vuelve a fallar hoy, de modo que luego ves como solucionar esta en especifico, es decir después de recaer 
+te fijas en las razones por las que recaíste y ves como defenderte, así que recae sin presiones.
+- no importa si no reinicias tu contador de días o si sigues reafirmando tu compromiso como si nada hubiera pasado, nadie lo sabrá.
+
+como debo de pensar para contrarrestar cada uno estos pensamientos:
+
+"aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?"
+el compromiso es para todo la vida, si vengo aquí a reafirmarlo es para tenerlo presente y no olvidar mi camino, ademas no es como si cada reafirmación tuviera una fecha de caducidad para un solo día.
+
+"será la ultima"
+sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hemos dado desde que éramos niños, */
+.shop-cart-container {
+  position: fixed;
+  display: none;
+  top: 3rem;
+  right: 11.5rem;
+  z-index: 9999;
+}
+.shop-cart-container__icon {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  font-size: 2rem;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  z-index: 99999;
+}
+.shop-cart-container.active {
+  display: initial;
+}
+
+.shop-cart {
+  opacity: 0;
+  min-width: 396px;
+  pointer-events: none;
+  background-color: #fff;
+  border-radius: 0.2rem;
+  max-width: 25rem;
+  padding: 1.2rem;
+  position: absolute;
+  z-index: 9999;
+  left: 50%;
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 0 0.5rem #585858;
+  transform: translate(-50%, -20%);
+}
+.shop-cart__circle {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  border: 2px solid #fff;
+}
+.shop-cart__notification {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #f53131;
+  color: #fff;
+  font-size: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 100%;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 99999;
+}
+.shop-cart__container {
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+.shop-cart__item {
+  position: relative;
+  background-color: #fff;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 0 0.3rem #363636;
+}
+.shop-cart__remove {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+}
+.shop-cart__img {
+  width: 6rem;
+  margin: 0 0.4rem 0 0;
+}
+.shop-cart__img img {
+  width: 100%;
+}
+.shop-cart__title-container {
+  margin: 0 2rem 0 0;
+}
+.shop-cart__title {
+  font-size: 19px;
+  color: #303030;
+}
+.shop-cart__price {
+  min-width: 4.5rem;
+}
+.shop-cart__price, .shop-cart .shop-cart__subtotal-container {
+  font-size: 14px;
+  color: #69727b;
+}
+.shop-cart__subtotal-container {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.shop-cart__total-container {
+  text-align: center;
+  color: #829ab3;
+  padding: 0.5rem 0;
+  border: 1px solid #829ab3;
+  margin: 0.5rem 0;
+}
+.shop-cart__show-cart {
+  background-color: #242222;
+  color: #fff;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  text-align: center;
+  transition: ease-in-out 0.3s;
+}
+.shop-cart__show-cart:hover {
+  filter: brightness(120%);
+}
+.shop-cart.active {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+/* .shop-cart-container__icon--fixed
+{
+   position: fixed;
+   top: 6.8rem;
+   right: 2.3rem;
+} */
+.mob-shop-cart-container {
+  display: none;
+  justify-content: flex-end;
+  position: fixed;
+  z-index: 999;
+  top: 9rem;
+  right: 2.5rem;
+}
+
+.mob-shop-cart__container {
+  opacity: 0;
+  display: none;
+  position: absolute;
+  transition: ease-in-out 0.5s;
+  transform: translateY(-15%);
+}
+.mob-shop-cart__container.active {
+  opacity: 1;
+  transform: translateY(85%);
+}
+.mob-shop-cart__container.display {
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  .shop-cart-container.active {
+    display: none;
+  }
+
+  .mob-shop-cart-container.active {
+    display: flex;
+  }
+}
+.body {
+  background-color: #fff;
+}
+
+.bicicletas-section {
+  color: #303030;
+  text-align: center;
+  padding: 3rem 24rem;
+}
+.bicicletas-section__title {
+  font-size: 3rem;
+}
+.bicicletas-section__paragraph {
+  line-height: 1.7rem;
+}
+
+.lifestyles {
+  background-color: #000;
+  flex-wrap: wrap;
+}
+.lifestyles__box {
+  flex: 1;
+  min-width: 402.33px;
+  position: relative;
+}
+.lifestyles__img {
+  width: 100%;
+  padding: 2rem;
+  padding-bottom: 1.8rem;
+}
+.lifestyles__img img {
+  width: 100%;
+}
+.lifestyles__link {
+  width: 11rem;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  color: #000;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: rgba(206, 206, 206, 0.5);
+}
+
+.bicicletas {
+  align-items: flex-start;
+  background-color: #ebebeb;
+  color: #303030;
+}
+.bicicletas__left-container {
+  padding: 2.5rem;
+  flex: 0 1 30%;
+}
+.bicicletas__right-container {
+  flex: 1;
+}
+.bicicletas__input {
+  padding: 0.5rem 0.6rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0.2rem;
+}
+.bicicletas__series {
+  margin: 1rem 0 1.8rem 0;
+  text-transform: uppercase;
+}
+.bicicletas__list {
+  list-style: none;
+}
+.bicicletas__item {
+  padding: 1.5rem 0;
+  display: block;
+  text-align: center;
+  border-top: 2px solid white;
+}
+.bicicletas__item--border {
+  border-bottom: 2px solid white;
+}
+.bicicletas__button {
+  color: #303030;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: ease-in-out 0.3s;
+}
+.bicicletas__button:hover {
+  color: #000;
+}
+.bicicletas__items {
+  flex-wrap: wrap;
+}
+
+.bici-container {
+  width: 33.33%;
+  min-width: 33.33%;
+  text-align: center;
+  /* height: 468.47px; */
+  padding: 0.8rem;
+}
+
+.bici {
+  background-color: #fff;
+  padding: 2rem;
+}
+.bici__img-container {
+  width: 100%;
+}
+.bici__img-container img {
+  width: 100%;
+}
+.bici__name {
+  font-weight: bold;
+  padding: 1.2rem 0;
+}
+.bici__link {
+  padding: 0.5rem;
+  color: #000;
+  border: 1px solid #e3eaef;
+}
+
+@media only screen and (max-width: 1223px) {
+  .bicicletas-section {
+    padding: 3rem;
+  }
+
+  .lifestyles {
+    /* flex-direction: column; */
+  }
+}
+@media only screen and (max-width: 1017px) {
+  .bici-container {
+    width: 50%;
+    min-width: 50%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .bicicletas {
+    flex-direction: column;
+  }
+  .bicicletas__left-container, .bicicletas__right-container {
+    width: 100%;
+    flex: 1;
+  }
+
+  .bici-container {
+    width: 100%;
+    min-width: 100%;
+    flex-direction: column;
+  }
+}
+.footer {
+  color: #fff;
+  font-size: 0.8rem;
+  background-color: #414042;
+  padding: 2.5rem 0;
+}
+.footer__information {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.footer__list {
+  width: fit-content;
+  gap: 1.5rem;
+  margin: 0 auto;
+  list-style: none;
+}
+.footer__link {
+  color: #dedede;
+}
+
+
+
+
+/*# sourceMappingURL=/bicis.b7e113da.css.map */
