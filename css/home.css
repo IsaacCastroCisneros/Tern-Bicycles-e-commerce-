@@ -348,7 +348,7 @@ body {
 }
 .mob-shop-cart__container.active {
   opacity: 1;
-  transform: translateY(85%);
+  transform: translateY(80%);
 }
 .mob-shop-cart__container.display {
   display: block;
@@ -380,6 +380,18 @@ body {
     font-size: 0.8rem;
     top: -0.3rem;
     right: -0.3rem;
+  }
+  .shop-cart__img {
+    width: 5rem;
+  }
+  .shop-cart__title {
+    font-size: 19px;
+  }
+  .shop-cart__price {
+    font-size: 14px;
+  }
+  .shop-cart__subtotal-container {
+    font-size: 0.9rem;
   }
 }
 .banner {
@@ -554,7 +566,7 @@ body {
   color: #fff;
   font-size: 0.8rem;
   background-color: #414042;
-  padding: 2.5rem 0;
+  padding: 2.5rem 1rem;
 }
 .footer__information {
   text-align: center;
