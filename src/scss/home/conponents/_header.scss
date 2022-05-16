@@ -181,48 +181,13 @@
         }
     }
 }
-
-/* hoy reafirmo mi compromiso como un hombre noble, de dejar el pmo y cambiar mi vida.
-
-hoy fui tentado muy fuertemente por el pmo, pero pude resistir, los factores que encontré son los siguientes:
-
--estar en mi cama
--fantasear
-
-considero que el hecho de estar descansando en mi cama detona fantasías que me pueden hacer recaer.
-
-que hare al respecto:
-
-- reafirmar mi compromiso será lo primero que haga en el día
-¿por que?
-para tenerlo presente en caso de ser tentado en la mañana.
-
-- hacer ejercicio antes de meditar
-¿por que?
-considero que después de hacer ejercicio tendré la mente mas limpia, además dudo que me de ganas estando algo exhausto.  
-
--meditar en el suelo
-¿por que?
-por que parece que aun relaciono la cama con el pmo.
-
-que hare hoy:
-que los productos aparezcan de acuerdo a la serie, además de hacer parte del carrito.
-
-lo que pensé mientras estaba siendo tentado:
-
-- aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?
-- será la ultima
-- ya hace unos días que no lo haces
-- checa las paginas y si encuentras algo interesante lo haces.
-- piensa en cosas interesantes que puedas buscar para que la recaída valga la pena.
-- vuelve a fallar hoy, de modo que luego ves como solucionar esta en especifico, es decir después de recaer 
-te fijas en las razones por las que recaíste y ves como defenderte, así que recae sin presiones.
-- no importa si no reinicias tu contador de días o si sigues reafirmando tu compromiso como si nada hubiera pasado, nadie lo sabrá.
-
-como debo de pensar para contrarrestar cada uno estos pensamientos:
-
-"aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?"
-el compromiso es para todo la vida, si vengo aquí a reafirmarlo es para tenerlo presente y no olvidar mi camino, ademas no es como si cada reafirmación tuviera una fecha de caducidad para un solo día.
-
-"será la ultima"
-sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hemos dado desde que éramos niños, */
+@media only screen and(max-width:500px) 
+{
+   .header
+   {
+       &__logo
+       {
+           height: 40px;
+       }
+   }
+}

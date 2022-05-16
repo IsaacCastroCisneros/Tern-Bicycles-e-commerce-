@@ -122,17 +122,28 @@
 {
     .product
     {
+        padding: 2.8rem;
         flex-direction: column-reverse;
         &__title
         {
+            &--desktop
+            {
+                display: none;
+            }
             &--mob
             {
                 display: initial;
+                font-size: 4rem;
             }
         }
         &__right-container
         {
             padding: 0;
+            text-align: center;
+        }
+        &__img-container
+        {
+            margin-top: .8rem;
         }
         &__button
         {
@@ -144,3 +155,4 @@
         }
     }
 }
+

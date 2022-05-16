@@ -20,7 +20,8 @@ window.addEventListener('DOMContentLoaded', () =>
         const descriptionList = itemById.fields.description.content[1].content;
         const price = Number(itemById.fields.price);
     
-        createProductBici(name,imgUrl,description,price,descriptionList)
+        createProductBici(name,imgUrl,description,price,descriptionList);
+        mobTitle();
     })
 })
 
@@ -43,6 +44,13 @@ export function bici()
    {
        inputOperations(productInput,e);
    });
+}
+
+function mobTitle()
+{
+    const title = document.querySelector('.product__title');
+    const mobTitle = document.querySelector('.product__title--mob');
+    mobTitle.innerHTML=title.textContent;
 }
 
 function createProductBici(name,imgUrl,description,price,descriptionList) 

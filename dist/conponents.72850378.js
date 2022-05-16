@@ -1096,6 +1096,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var descriptionList = itemById.fields.description.content[1].content;
     var price = Number(itemById.fields.price);
     createProductBici(name, imgUrl, description, price, descriptionList);
+    mobTitle();
   });
 });
 
@@ -1115,6 +1116,12 @@ function bici() {
   (0, _globalEventListener.default)('click', '.product__input-button', function (e) {
     (0, _inputOperations.default)(productInput, e);
   });
+}
+
+function mobTitle() {
+  var title = document.querySelector('.product__title');
+  var mobTitle = document.querySelector('.product__title--mob');
+  mobTitle.innerHTML = title.textContent;
 }
 
 function createProductBici(name, imgUrl, description, price, descriptionList) {
@@ -1821,7 +1828,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62323" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55613" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

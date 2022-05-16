@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -190,50 +189,11 @@ body {
     color: #979797;
   }
 }
-/* hoy reafirmo mi compromiso como un hombre noble, de dejar el pmo y cambiar mi vida.
-
-hoy fui tentado muy fuertemente por el pmo, pero pude resistir, los factores que encontré son los siguientes:
-
--estar en mi cama
--fantasear
-
-considero que el hecho de estar descansando en mi cama detona fantasías que me pueden hacer recaer.
-
-que hare al respecto:
-
-- reafirmar mi compromiso será lo primero que haga en el día
-¿por que?
-para tenerlo presente en caso de ser tentado en la mañana.
-
-- hacer ejercicio antes de meditar
-¿por que?
-considero que después de hacer ejercicio tendré la mente mas limpia, además dudo que me de ganas estando algo exhausto.  
-
--meditar en el suelo
-¿por que?
-por que parece que aun relaciono la cama con el pmo.
-
-que hare hoy:
-que los productos aparezcan de acuerdo a la serie, además de hacer parte del carrito.
-
-lo que pensé mientras estaba siendo tentado:
-
-- aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?
-- será la ultima
-- ya hace unos días que no lo haces
-- checa las paginas y si encuentras algo interesante lo haces.
-- piensa en cosas interesantes que puedas buscar para que la recaída valga la pena.
-- vuelve a fallar hoy, de modo que luego ves como solucionar esta en especifico, es decir después de recaer 
-te fijas en las razones por las que recaíste y ves como defenderte, así que recae sin presiones.
-- no importa si no reinicias tu contador de días o si sigues reafirmando tu compromiso como si nada hubiera pasado, nadie lo sabrá.
-
-como debo de pensar para contrarrestar cada uno estos pensamientos:
-
-"aun no haz reafirmado tu compromiso, así que no es tanto como si te traicionaras no?"
-el compromiso es para todo la vida, si vengo aquí a reafirmarlo es para tenerlo presente y no olvidar mi camino, ademas no es como si cada reafirmación tuviera una fecha de caducidad para un solo día.
-
-"será la ultima"
-sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hemos dado desde que éramos niños, */
+@media only screen and (max-width: 500px) {
+  .header__logo {
+    height: 40px;
+  }
+}
 .shop-cart-container {
   position: fixed;
   display: none;
@@ -376,7 +336,7 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
   position: fixed;
   z-index: 999;
   top: 9rem;
-  right: 2.5rem;
+  right: 1rem;
 }
 
 .mob-shop-cart__container {
@@ -401,6 +361,25 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
 
   .mob-shop-cart-container.active {
     display: flex;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .shop-cart-container__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+
+  .shop-cart__circle {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+  .shop-cart__notification {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    top: -0.3rem;
+    right: -0.3rem;
   }
 }
 .banner {
@@ -450,7 +429,7 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
 .por-que-elegir {
   background-color: #000;
   color: #fff;
-  padding: 4rem 2.2rem 2rem;
+  padding: 4rem 2rem 2rem;
 }
 .por-que-elegir__title {
   display: block;
@@ -535,6 +514,40 @@ sabemos que no es así, es la excusa mas vieja que tenemos, la misma que nos hem
 @media only screen and (max-width: 637px) {
   .por-que-elegir__paragraph {
     display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .banner__title--size {
+    font-size: 18px;
+  }
+  .banner__img {
+    width: 100%;
+    max-height: 721.41px;
+  }
+  .banner__img img {
+    width: 100%;
+  }
+  .banner__subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+  .banner__link {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #fff;
+    font-size: 0.8rem;
+  }
+
+  .por-que-elegir {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+  .por-que-elegir__container {
+    gap: 0.5rem;
+  }
+  .por-que-elegir__box {
+    min-width: 80.8px;
+  }
+  .por-que-elegir__subtitle {
+    font-size: 0.8rem;
   }
 }
 .footer {

@@ -179,7 +179,7 @@
    position: fixed;
    z-index: 999;
    top: 9rem;
-   right: 2.5rem;
+   right: 1rem;
 }
 
 .mob-shop-cart__container
@@ -192,7 +192,7 @@
    &.active
    {
       opacity: 1;
-      transform: translateY(85%);
+      transform: translateY(80%);
    }
    &.display
    {
@@ -211,6 +211,51 @@
       &.active
       {
          display: flex;
+      }
+   }
+}
+
+@media only screen and (max-width:500px) 
+{
+   .shop-cart-container
+   {
+      &__icon
+      {
+         width: 3.5rem;
+         height: 3.5rem;
+         font-size: 1.5rem;
+      }
+   }
+   .shop-cart
+   {
+      &__circle
+      {
+         height: 2.8rem;
+         width: 2.8rem;
+      }
+      &__notification
+      {
+         width: 1.5rem;
+         height: 1.5rem;
+         font-size: .8rem;
+         top: -.3rem;
+         right: -.3rem;
+      }
+      &__img
+      {
+          width: 5rem;
+      }
+      &__title
+      {
+         font-size: 19px;
+      }
+      &__price
+      {
+         font-size: 14px;
+      }
+      &__subtotal-container
+      {
+         font-size: .9rem;
       }
    }
 }

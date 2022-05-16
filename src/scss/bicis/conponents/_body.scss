@@ -198,3 +198,22 @@
         flex-direction: column;
     }
 }
+
+@media only screen and (max-width:500px) 
+{
+   .lifestyles
+   {
+       &__box
+       {
+           min-width: 350px;
+       }
+       &__img
+       {
+           padding: 1.5rem;
+           &--padding
+           {
+               padding: 0 1.5rem;
+           }
+       }
+   }
+}
