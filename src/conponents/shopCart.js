@@ -119,7 +119,7 @@ async function showCart()
     {
         shopCartContainer.classList.remove('active');
         
-        mobShopCartContainer.classList.toggle('active');
+        mobShopCartContainer.classList.remove('active');
     }
 }
 

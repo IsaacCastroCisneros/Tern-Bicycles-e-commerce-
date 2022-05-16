@@ -1383,7 +1383,7 @@ function _showCart() {
               mobShopCartContainer.classList.add('active');
             } else if (cartOptionsObject.show === false || cartOptionsObject.show === undefined) {
               shopCartContainer.classList.remove('active');
-              mobShopCartContainer.classList.toggle('active');
+              mobShopCartContainer.classList.remove('active');
             }
 
           case 3:
@@ -1852,7 +1852,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50155" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
