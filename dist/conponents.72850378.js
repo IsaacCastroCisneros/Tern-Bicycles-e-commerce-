@@ -1679,9 +1679,30 @@ function emptyMessage() {
   shoppingCartContainer.appendChild(emptyMessageClone);
 }
 
+function cloneInput() {
+  var rowItem = document.querySelectorAll('.shop-cart__row--item');
+  rowItem.forEach(function (row) {
+    var form = row.querySelector('.shop-cart__form');
+    var buttons = row.querySelector('.shop-cart__input-container');
+    var container = row.querySelector('.shop-cart__input-clone-container');
+    var newForm = form.cloneNode(true);
+    var newButtons = buttons.cloneNode(true);
+    container.appendChild(newButtons);
+    container.appendChild(newForm);
+  });
+}
+
+function sameInputValue(row, item) {
+  var rowInput = row.querySelectorAll('.shop-cart__input');
+  rowInput.forEach(function (input) {
+    input.value = item.quantity;
+  });
+}
+
 function shoppingCart() {
   renderShoppoingCartItems();
   emptyMessage();
+  cloneInput();
   (0, _globalEventListener.default)('click', '.shop-cart__remove', function (e) {
     var shopCart = e.target.closest('.shop-cart__row');
     var newShopCart = cartItemsArr.filter(function (item) {
@@ -1704,6 +1725,7 @@ function shoppingCart() {
     item.quantity = Number(input.value);
     createTotals(item);
     (0, _localStorageContent.setCartBici)(cartItemsArr, 'cartContent');
+    sameInputValue(row, item);
     setTotals();
   });
   (0, _globalEventListener.default)('input', '.shop-cart__input', function (e) {
@@ -1735,7 +1757,7 @@ function shoppingCart() {
   formArr.forEach(function (form) {
     form.addEventListener('submit', /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-        var input, item;
+        var input, item, row;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -1754,9 +1776,11 @@ function shoppingCart() {
                 input.style.removeProperty('outline');
                 createTotals(item);
                 (0, _localStorageContent.setCartBici)(cartItemsArr, 'cartContent');
+                row = e.target.closest('.shop-cart__row');
+                sameInputValue(row, item);
                 setTotals();
 
-              case 11:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -1828,7 +1852,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55613" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62250" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

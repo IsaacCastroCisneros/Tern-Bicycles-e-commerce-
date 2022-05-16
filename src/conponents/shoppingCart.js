@@ -79,11 +79,41 @@ function emptyMessage()
     shoppingCartContainer.appendChild(emptyMessageClone);
 }
 
+function cloneInput()
+{
+    
+    const rowItem = document.querySelectorAll('.shop-cart__row--item');
+    
+    rowItem.forEach(row=>
+    {
+        const form = row.querySelector('.shop-cart__form');
+        const buttons = row.querySelector('.shop-cart__input-container');
+        const container = row.querySelector('.shop-cart__input-clone-container');
+        
+        const newForm = form.cloneNode(true);
+        const newButtons = buttons.cloneNode(true);
+
+        container.appendChild(newButtons);
+        container.appendChild(newForm);
+    })
+    
+}
+
+function sameInputValue(row,item)
+{
+    const rowInput = row.querySelectorAll('.shop-cart__input');
+
+    rowInput.forEach(input=>
+    {
+        input.value=item.quantity;
+    })
+}
+
 export function shoppingCart()
 {
     renderShoppoingCartItems();
     emptyMessage();
-
+    cloneInput();
     addGlobalEventListener('click','.shop-cart__remove',(e)=>
     {
        const shopCart = e.target.closest('.shop-cart__row');
@@ -93,7 +123,6 @@ export function shoppingCart()
        cartItemsArr= newShopCart;
        
        setCartBici(cartItemsArr,'cartContent');
-       
        emptyMessage();
        isSubtotalVisible();
        setTotals();
@@ -102,7 +131,7 @@ export function shoppingCart()
     addGlobalEventListener('click','[shop-cart-input-button]',(e)=>
     {
         const input = e.target.closest('.shop-cart__input-container').nextElementSibling.children[0];
-
+       
         inputOperations(input,e);
 
         const row =e.target.closest('.shop-cart__row');
@@ -112,6 +141,7 @@ export function shoppingCart()
 
         createTotals(item);
         setCartBici(cartItemsArr,'cartContent'); 
+        sameInputValue(row,item);
         setTotals();     
     })
 
@@ -163,6 +193,10 @@ export function shoppingCart()
 
             createTotals(item);
             setCartBici(cartItemsArr,'cartContent');
+
+            const row = e.target.closest('.shop-cart__row');
+            sameInputValue(row,item);
+            
             setTotals();
         })
     })

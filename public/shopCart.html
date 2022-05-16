@@ -167,17 +167,24 @@
     </footer>
 </body>
 <template class="shop-cart-template">
-    <div class="shop-cart__row">
-        <div class="shop-cart__box shop-cart__box--product shop-cart__box--header">
-            <div class="shop-cart__img">
-                <img shop-cart-img src="" alt="">
+    <div class="shop-cart__row shop-cart__row--item">
+        <div class="shop-cart__box shop-cart__box--product shop-cart__box--input-clone" style="gap:1rem ;">
+            <div style="display: flex;">
+                <div class="shop-cart__img">
+                    <img shop-cart-img src="" alt="">
+                </div>
+                <div class="shop-cart__rigth-container">
+                    <h3 class="shop-cart__title">
+                   </h3>
+                   <button class="shop-cart__remove">
+                       remove  
+                   </button>
+                </div>
             </div>
-            <div class="shop-cart__rigth-container">
-                <h3 class="shop-cart__title">
-               </h3>
-               <button class="shop-cart__remove">
-                   remove  
-               </button>
+            <div class="shop-cart__input-clone-container" style="flex-direction: column; gap: .5rem;">
+                <p class="shop-cart__input-title" style="font-size: .8rem;">
+                    Quantity:
+                </p>
             </div>
         </div>
         <div class="shop-cart__box shop-cart__box--price">     
@@ -195,7 +202,7 @@
                 <input class="shop-cart__input" type="number" maxlength="99" required>
             </form>
         </div>
-        <div class="shop-cart__box shop-cart__box--total">
+        <div class="shop-cart__box shop-cart__box--total shop-cart__box--font-size">
         </div>
     </div>
 </template>  
