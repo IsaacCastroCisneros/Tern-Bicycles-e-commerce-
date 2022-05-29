@@ -324,12 +324,6 @@ body {
   pointer-events: auto;
 }
 
-/* .shop-cart-container__icon--fixed
-{
-   position: fixed;
-   top: 6.8rem;
-   right: 2.3rem;
-} */
 .mob-shop-cart-container {
   display: none;
   justify-content: flex-end;
@@ -402,7 +396,7 @@ body {
 }
 .banner__img {
   width: 100%;
-  max-height: 721.41px;
+  height: fit-content;
 }
 .banner__img img {
   width: 100%;
@@ -514,14 +508,6 @@ body {
     font-size: 1.2rem;
     margin: 0 0 0.5rem;
   }
-
-  /*    .learn-about
-     {
-         &__title
-         {
-             font-size: 1rem;
-         }
-     } */
 }
 @media only screen and (max-width: 637px) {
   .por-que-elegir__paragraph {
