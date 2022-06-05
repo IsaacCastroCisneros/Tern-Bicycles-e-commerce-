@@ -922,50 +922,6 @@ function OpenMenu() {
     bodyLayer.classList.remove('active');
   });
 }
-/* -------------------------------------------------- */
-
-/* let client = contentful.createClient(
-{
-  space: "bevaw7cnpfpm",
-  accessToken: "NZY3bOsXMAdP8kafTHktHbLjN6ssUKtqCNQqjEuq8g8",
-})
-
-client
-  .getEntries()
-  .then(entry => 
-  {
-      entry.items.forEach(item=>
-      {
-          const bici = item.sys.id;
-          console.log(bici)
-      })
-  })
-  .catch(err => console.log(err)); */
-
-/* 
-const contentful = require('contentful-management');
-
-async function connect()
-{
-    let client = await contentful.createClient(
-    {
-        accessToken:"CFPAT-BW9jW2hpauTN488If1MzJ23LCmfOf5m3k0GQifwr4SE",
-    });
-    let space = await client.getSpace('bevaw7cnpfpm');
-    return await space.getEnvironment('master');
-}
-
-async function updateBici(env,biciID)
-{
-    let bici = await env.getEntry(biciID);
-    console.log(bici.fields.price)
-}
-
-(async ()=>
-{
-    let env = await connect();
-    await updateBici(env,'4l2aN2eqHTdGC3tocPkvL6');
-})(); */
 },{"./../util/globalEventListener":"../src/util/globalEventListener.js"}],"../src/util/content.js":[function(require,module,exports) {
 "use strict";
 
@@ -985,7 +941,86 @@ function contentRequest(request) {
     return console.log(err);
   });
 }
-},{}],"../src/util/formatCurrency.js":[function(require,module,exports) {
+},{}],"../src/conponents/bicis.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.bicis = bicis;
+exports.createBici = createBici;
+
+var _globalEventListener = _interopRequireDefault(require("../util/globalEventListener"));
+
+var _content = _interopRequireDefault(require("../util/content"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function bicis() {
+  (0, _globalEventListener.default)('click', '.bicicletas__button', function (e) {
+    var biciItesm = document.querySelector('.bicicletas__items');
+    var serie = e.target.dataset.serie;
+    biciItesm.innerHTML = '';
+
+    if (serie === 'All') {
+      showBici();
+      return;
+    }
+
+    showBySerie(serie);
+  });
+  (0, _globalEventListener.default)('click', '.lifestyles__link', function (e) {
+    window.scrollBy(0, 2200);
+  });
+  (0, _globalEventListener.default)('click', '.bici__link', function (e) {
+    var biciId = e.target.closest('.bici').dataset.id;
+    sessionStorage.setItem('actualBici', JSON.stringify(biciId));
+  });
+  showBici();
+}
+
+function showBySerie(serie) {
+  (0, _content.default)(function (items) {
+    var itemsBySerie = items.filter(function (item) {
+      return item.fields.serie === serie;
+    });
+    itemsBySerie.forEach(function (item) {
+      var id = item.sys.id;
+      var name = item.fields.name;
+      var serie = item.fields.serie;
+      var imgUrl = item.fields.image.fields.file.url;
+      createBici(id, imgUrl, name, serie);
+    });
+  });
+}
+
+function showBici() {
+  (0, _content.default)(function (items) {
+    items.forEach(function (item) {
+      var id = item.sys.id;
+      var name = item.fields.name;
+      var serie = item.fields.serie;
+      var imgUrl = item.fields.image.fields.file.url;
+      createBici(id, imgUrl, name, serie);
+    });
+  });
+}
+
+var bicicletasItems = document.querySelector('[data-bicicletas-items]');
+
+function createBici(id, imgUrl, nameBici, serie) {
+  var temp = document.querySelector('.bici-template');
+  var biciClone = temp.content.cloneNode(true);
+  var bici = biciClone.querySelector('.bici');
+  var img = biciClone.querySelector('.bici__img');
+  var name = biciClone.querySelector('.bici__name');
+  bici.setAttribute('data-id', id);
+  bici.setAttribute('data-serie', serie);
+  img.src = imgUrl;
+  name.textContent = nameBici;
+  bicicletasItems.appendChild(biciClone);
+}
+},{"../util/globalEventListener":"../src/util/globalEventListener.js","../util/content":"../src/util/content.js"}],"../src/util/formatCurrency.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1074,8 +1109,6 @@ var _formatCurrency = _interopRequireDefault(require("../util/formatCurrency"));
 
 var _globalEventListener = _interopRequireDefault(require("../util/globalEventListener"));
 
-var _bicis = require("./bicis");
-
 var _requestUrl = _interopRequireDefault(require("../util/requestUrl"));
 
 var _inputOperations = _interopRequireDefault(require("../util/inputOperations"));
@@ -1106,13 +1139,6 @@ function bici() {
     var input = e.target;
     (0, _inputLimiter.default)(input);
   });
-  /* addGlobalEventListener('submit','.product__input-form',e=>
-  {
-      e.preventDefault();
-      const input = e.target;
-      console.log(4)
-  }); */
-
   (0, _globalEventListener.default)('click', '.product__input-button', function (e) {
     (0, _inputOperations.default)(productInput, e);
   });
@@ -1141,90 +1167,7 @@ function createProductBici(name, imgUrl, description, price, descriptionList) {
   descriptionBici.innerHTML = description;
   priceBici.textContent = (0, _formatCurrency.default)(price);
 }
-},{"../util/content":"../src/util/content.js","../util/formatCurrency":"../src/util/formatCurrency.js","../util/globalEventListener":"../src/util/globalEventListener.js","./bicis":"../src/conponents/bicis.js","../util/requestUrl":"../src/util/requestUrl.js","../util/inputOperations":"../src/util/inputOperations.js","../util/inputLimiter":"../src/util/inputLimiter.js"}],"../src/conponents/bicis.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.bicis = bicis;
-exports.createBici = createBici;
-
-var _globalEventListener = _interopRequireDefault(require("../util/globalEventListener"));
-
-var _content = _interopRequireDefault(require("../util/content"));
-
-var _bici = require("../conponents/bici");
-
-var _requestUrl = _interopRequireDefault(require("../util/requestUrl"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function bicis() {
-  (0, _globalEventListener.default)('click', '.bicicletas__button', function (e) {
-    var biciItesm = document.querySelector('.bicicletas__items');
-    var serie = e.target.dataset.serie;
-    biciItesm.innerHTML = '';
-
-    if (serie === 'All') {
-      showBici();
-      return;
-    }
-
-    showBySerie(serie);
-  });
-  (0, _globalEventListener.default)('click', '.lifestyles__link', function (e) {
-    window.scrollBy(0, 2200);
-  });
-  (0, _globalEventListener.default)('click', '.bici__link', function (e) {
-    var biciId = e.target.closest('.bici').dataset.id;
-    sessionStorage.setItem('actualBici', JSON.stringify(biciId));
-  });
-  showBici();
-}
-
-function showBySerie(serie) {
-  (0, _content.default)(function (items) {
-    var itemsBySerie = items.filter(function (item) {
-      return item.fields.serie === serie;
-    });
-    itemsBySerie.forEach(function (item) {
-      var id = item.sys.id;
-      var name = item.fields.name;
-      var serie = item.fields.serie;
-      var imgUrl = item.fields.image.fields.file.url;
-      createBici(id, imgUrl, name, serie);
-    });
-  });
-}
-
-function showBici() {
-  (0, _content.default)(function (items) {
-    items.forEach(function (item) {
-      var id = item.sys.id;
-      var name = item.fields.name;
-      var serie = item.fields.serie;
-      var imgUrl = item.fields.image.fields.file.url;
-      createBici(id, imgUrl, name, serie);
-    });
-  });
-}
-
-var bicicletasItems = document.querySelector('[data-bicicletas-items]');
-
-function createBici(id, imgUrl, nameBici, serie) {
-  var temp = document.querySelector('.bici-template');
-  var biciClone = temp.content.cloneNode(true);
-  var bici = biciClone.querySelector('.bici');
-  var img = biciClone.querySelector('.bici__img');
-  var name = biciClone.querySelector('.bici__name');
-  bici.setAttribute('data-id', id);
-  bici.setAttribute('data-serie', serie);
-  img.src = imgUrl;
-  name.textContent = nameBici;
-  bicicletasItems.appendChild(biciClone);
-}
-},{"../util/globalEventListener":"../src/util/globalEventListener.js","../util/content":"../src/util/content.js","../conponents/bici":"../src/conponents/bici.js","../util/requestUrl":"../src/util/requestUrl.js"}],"../src/util/promiseTimeOut.js":[function(require,module,exports) {
+},{"../util/content":"../src/util/content.js","../util/formatCurrency":"../src/util/formatCurrency.js","../util/globalEventListener":"../src/util/globalEventListener.js","../util/requestUrl":"../src/util/requestUrl.js","../util/inputOperations":"../src/util/inputOperations.js","../util/inputLimiter":"../src/util/inputLimiter.js"}],"../src/util/promiseTimeOut.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1294,7 +1237,6 @@ function setCartOptions() {
 }
 
 function findBiciByID(id) {
-  /* const mobCartItemContainer = document.querySelector('.mob-shop-cart__container'); */
   (0, _content.default)(function (items) {
     var bici = items.find(function (item) {
       return item.sys.id === id;
@@ -1329,7 +1271,6 @@ function addBiciToCart(bici) {
   renderCartItems();
   renderMobCartItems(biciObj.id);
   showNotification();
-  /* console.log(cartItemsArr) */
 }
 
 function renderCartItems() {
@@ -1365,35 +1306,16 @@ function createCartItem(item) {
 }
 
 function showCart() {
-  return _showCart.apply(this, arguments);
-}
+  var shopCartContainer = document.querySelector('.shop-cart-container');
+  var mobShopCartContainer = document.querySelector('.mob-shop-cart-container');
 
-function _showCart() {
-  _showCart = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-    var shopCartContainer, mobShopCartContainer;
-    return regeneratorRuntime.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            shopCartContainer = document.querySelector('.shop-cart-container');
-            mobShopCartContainer = document.querySelector('.mob-shop-cart-container');
-
-            if (cartOptionsObject.show === true) {
-              shopCartContainer.classList.add('active');
-              mobShopCartContainer.classList.add('active');
-            } else if (cartOptionsObject.show === false || cartOptionsObject.show === undefined) {
-              shopCartContainer.classList.remove('active');
-              mobShopCartContainer.classList.remove('active');
-            }
-
-          case 3:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3);
-  }));
-  return _showCart.apply(this, arguments);
+  if (cartOptionsObject.show === true) {
+    shopCartContainer.classList.add('active');
+    mobShopCartContainer.classList.add('active');
+  } else if (cartOptionsObject.show === false || cartOptionsObject.show === undefined) {
+    shopCartContainer.classList.remove('active');
+    mobShopCartContainer.classList.remove('active');
+  }
 }
 
 function isCartEmpty() {
@@ -1429,13 +1351,13 @@ function renderMobCartItems(_x) {
 }
 
 function _renderMobCartItems() {
-  _renderMobCartItems = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id) {
+  _renderMobCartItems = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(id) {
     var cartItem, buttonItem, items, foundItem, newItem, newItemButton;
-    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context4.prev = _context4.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
-            _context4.prev = 0;
+            _context3.prev = 0;
             cartItem = document.querySelector('.mob-shop-cart__container');
             buttonItem = document.querySelector('.product__button--mob');
             cartItem.innerHTML = '';
@@ -1448,37 +1370,37 @@ function _renderMobCartItems() {
             newItemButton.remove();
             cartItem.appendChild(newItem);
             cartItem.classList.toggle('display');
-            _context4.next = 13;
+            _context3.next = 13;
             return (0, _promiseTimeOut.default)(100);
 
           case 13:
             cartItem.classList.add('active');
             buttonItem.classList.toggle('active');
-            _context4.next = 17;
+            _context3.next = 17;
             return (0, _promiseTimeOut.default)(2800);
 
           case 17:
             cartItem.classList.remove('active');
             buttonItem.classList.toggle('active');
-            _context4.next = 21;
+            _context3.next = 21;
             return (0, _promiseTimeOut.default)(500);
 
           case 21:
             cartItem.classList.toggle('display');
-            _context4.next = 27;
+            _context3.next = 27;
             break;
 
           case 24:
-            _context4.prev = 24;
-            _context4.t0 = _context4["catch"](0);
-            console.log(_context4.t0);
+            _context3.prev = 24;
+            _context3.t0 = _context3["catch"](0);
+            console.log(_context3.t0);
 
           case 27:
           case "end":
-            return _context4.stop();
+            return _context3.stop();
         }
       }
-    }, _callee4, null, [[0, 24]]);
+    }, _callee3, null, [[0, 24]]);
   }));
   return _renderMobCartItems.apply(this, arguments);
 }
@@ -1529,8 +1451,6 @@ function shopCart() {
   }());
   (0, _globalEventListener.default)('click', '[shop-cart-button]', function (e) {
     var buttonIcon = e.target.closest('.shop-cart-container__icon').nextElementSibling;
-    /* const notification = document.querySelector('.shop-cart__notification'); */
-
     console.log(buttonIcon);
     cartOptionsObject = {
       show: true,
@@ -1586,10 +1506,6 @@ function shopCart() {
   showCart();
   renderCartItems();
   showNotification();
-  /*   addGlobalEventListener('click',,e=>
-    {
-          
-    }) */
 }
 },{"../util/globalEventListener":"../src/util/globalEventListener.js","../util/content":"../src/util/content.js","../util/requestUrl":"../src/util/requestUrl.js","../util/formatCurrency":"../src/util/formatCurrency.js","../util/promiseTimeOut":"../src/util/promiseTimeOut.js","../util/localStorageContent":"../src/util/localStorageContent.js"}],"../src/conponents/shoppingCart.js":[function(require,module,exports) {
 "use strict";
@@ -1628,8 +1544,6 @@ function isSubtotalVisible() {
 function renderShoppoingCartItems() {
   if (cartItemsArr.length === 0) return;
   shoppingCartContainer.innerHTML = '';
-  /* shoppingCartSubtotal.classList.toggle(active); */
-
   cartItemsArr.forEach(createShoppingCartItems);
   isSubtotalVisible();
 }
@@ -1809,11 +1723,6 @@ var _shopCart = require("./shopCart");
 
 var _shoppingCart = require("./shoppingCart");
 
-var _content = _interopRequireDefault(require("../util/content"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* contentRequest(createBici); */
 var shopCartDocument = document.querySelector('.body-shopCart');
 (0, _menu.OpenMenu)();
 (0, _bicis.bicis)();
@@ -1824,7 +1733,7 @@ if (shopCartDocument === null) {
 } else if (shopCartDocument) {
   (0, _shoppingCart.shoppingCart)();
 }
-},{"regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","./menu":"../src/conponents/menu.js","./bicis":"../src/conponents/bicis.js","./bici":"../src/conponents/bici.js","./shopCart":"../src/conponents/shopCart.js","./shoppingCart":"../src/conponents/shoppingCart.js","../util/content":"../src/util/content.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","./menu":"../src/conponents/menu.js","./bicis":"../src/conponents/bicis.js","./bici":"../src/conponents/bici.js","./shopCart":"../src/conponents/shopCart.js","./shoppingCart":"../src/conponents/shoppingCart.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1852,7 +1761,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64920" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65426" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

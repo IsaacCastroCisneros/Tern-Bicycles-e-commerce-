@@ -1,7 +1,6 @@
 import addGlobalEventListener from "../util/globalEventListener";
 import contentRequest from "../util/content";
-import {findBici} from "../conponents/bici";
-import parseRequestUrl from "../util/requestUrl";
+
 
 export function bicis()
 {

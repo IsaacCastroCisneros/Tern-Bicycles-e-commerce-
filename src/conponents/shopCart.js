@@ -23,7 +23,6 @@ function setCartOptions()
 
 function findBiciByID(id)
 {
-   /* const mobCartItemContainer = document.querySelector('.mob-shop-cart__container'); */
    contentRequest(items =>
    {
       const bici = items.find(item=> item.sys.id === id);
@@ -59,8 +58,6 @@ function addBiciToCart(bici)
     renderCartItems();
     renderMobCartItems(biciObj.id);  
     showNotification();
-
-    /* console.log(cartItemsArr) */
 }
 
 function renderCartItems()
@@ -105,7 +102,7 @@ function createCartItem(item)
   
 }
 
-async function showCart()
+function showCart()
 {
     const shopCartContainer = document.querySelector('.shop-cart-container');
     const mobShopCartContainer = document.querySelector('.mob-shop-cart-container');
@@ -219,7 +216,6 @@ export function shopCart()
     addGlobalEventListener('click','[shop-cart-button]',e=>
     {
         const buttonIcon = e.target.closest('.shop-cart-container__icon').nextElementSibling;
-        /* const notification = document.querySelector('.shop-cart__notification'); */
         console.log(buttonIcon)
         cartOptionsObject =
         {
@@ -262,9 +258,4 @@ export function shopCart()
     showCart();
     renderCartItems();
     showNotification();
-
-  /*   addGlobalEventListener('click',,e=>
-    {
-          
-    }) */
 }

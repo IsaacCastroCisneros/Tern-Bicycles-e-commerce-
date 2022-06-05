@@ -1,7 +1,6 @@
 import contentRequest from "../util/content";
 import formatCurrency from "../util/formatCurrency";
 import addGlobalEventListener from "../util/globalEventListener";
-import { bicis } from "./bicis";
 import parseRequestUrl from "../util/requestUrl";
 import inputOperations from "../util/inputOperations";
 import inputLimiter from "../util/inputLimiter";
@@ -34,12 +33,6 @@ export function bici()
        const input = e.target;
        inputLimiter(input);
    });
-   /* addGlobalEventListener('submit','.product__input-form',e=>
-   {
-       e.preventDefault();
-       const input = e.target;
-       console.log(4)
-   }); */
    addGlobalEventListener('click','.product__input-button',e=>
    {
        inputOperations(productInput,e);

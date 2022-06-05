@@ -19,7 +19,6 @@ function renderShoppoingCartItems()
 {
     if(cartItemsArr.length===0)return
     shoppingCartContainer.innerHTML='';
-    /* shoppingCartSubtotal.classList.toggle(active); */
     cartItemsArr.forEach(createShoppingCartItems);
     isSubtotalVisible();
 }

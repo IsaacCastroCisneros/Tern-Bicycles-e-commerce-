@@ -1,7 +1,4 @@
-
-
 import addGlobalEventListener from './../util/globalEventListener';
-
 
 export function OpenMenu()
 {
@@ -34,55 +31,3 @@ export function OpenMenu()
         bodyLayer.classList.remove('active');
     })
 }
-
-
-
-
-
-
-
-
-/* -------------------------------------------------- */
-
-/* let client = contentful.createClient(
-{
-  space: "bevaw7cnpfpm",
-  accessToken: "NZY3bOsXMAdP8kafTHktHbLjN6ssUKtqCNQqjEuq8g8",
-})
-
-client
-  .getEntries()
-  .then(entry => 
-  {
-      entry.items.forEach(item=>
-      {
-          const bici = item.sys.id;
-          console.log(bici)
-      })
-  })
-  .catch(err => console.log(err)); */
-/* 
-const contentful = require('contentful-management');
-
-async function connect()
-{
-    let client = await contentful.createClient(
-    {
-        accessToken:"CFPAT-BW9jW2hpauTN488If1MzJ23LCmfOf5m3k0GQifwr4SE",
-    });
-    let space = await client.getSpace('bevaw7cnpfpm');
-    return await space.getEnvironment('master');
-}
-
-async function updateBici(env,biciID)
-{
-    let bici = await env.getEntry(biciID);
-    console.log(bici.fields.price)
-}
-
-(async ()=>
-{
-    let env = await connect();
-    await updateBici(env,'4l2aN2eqHTdGC3tocPkvL6');
-})(); */
-

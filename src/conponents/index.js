@@ -4,8 +4,7 @@ import { bicis } from "./bicis";
 import { bici } from "./bici";
 import { shopCart } from "./shopCart";
 import { shoppingCart } from "./shoppingCart";
-import contentRequest from "../util/content";
-/* contentRequest(createBici); */
+
 
 const shopCartDocument = document.querySelector('.body-shopCart');
 
